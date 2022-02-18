@@ -4,16 +4,18 @@ import shortid from 'shortid';
 import s from './Phone.module.css';
 
 import { useDispatch, useSelector } from "react-redux";
-import  {getContactList} from "../Redux/phonebook/phonebook-selectors";
+//import  {getContactList} from "../Redux/phonebook/phonebook-selectors";
 
-import { addContact } from '../Redux/phonebook/phonebook-actions';
+//import { addContact } from '../Redux/phonebook/phonebook-actions';
+import phonebookOperation  from 'Redux/phonebook/phonebook-operation';
+import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors"
 
 export default function Form() {
   const [newName, setName] = useState('');
   const [number, setNumber] = useState('');
 
   const dispatch = useDispatch();
-  const state = useSelector(getContactList);
+  const state = useSelector(phonebookSelectors.getContactList);
 
   const InputValue = (e) => {
     const { name, value } = e.currentTarget;
@@ -63,7 +65,7 @@ export default function Form() {
       alert('Это имя существует ');
       return;
     }
-    dispatch(addContact(newName, number));
+    dispatch(phonebookOperation.addContact(newName, number));
   };
 
   const idName = shortid.generate();
