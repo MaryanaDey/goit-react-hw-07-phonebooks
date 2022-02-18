@@ -1,22 +1,30 @@
 import React from 'react';
 import shortid from 'shortid';
-import s from './Phone.module.css';
+import s from './phone.module.css';
+import * as phonebookActions from "../Redux/phonebook/phonebook-actions";
+import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors";
 
-import { veluesFilter} from "../Redux/phonebook/phonebook-actions";
-import { connect } from "react-redux";
+import { useSelector, useDispatch } from "react-redux";
 
-function SearchContact({ value, searchContact }) {
+export default function SearchContact() {
+  const state = useSelector(phonebookSelectors.getContactFilter);
+  const dispatch = useDispatch();
+
+  const searchContact = (e) => {
+    dispatch(phonebookActions.veluesFilter(e.target.value));
+  };
+
   const id = shortid.generate();
 
   return (
     <div className={s.containerSearch}>
-      <label htmlFor={id} className={s.labelSearch}>
+      <label className={s.labelSearch}  htmlFor={id}>
         Поиск контактов по имени
       </label>
       <input
         type="tex"
         name="filter"
-        value={value}
+        value={state}
         onChange={searchContact}
         id={id}
         className={s.inputSearch}
@@ -26,18 +34,5 @@ function SearchContact({ value, searchContact }) {
 }
 
 
-const mapStateToProps = (state) => ({
-  value: state.phonebook.filter,
-});
-
-const mapDispatchToProps = (dispatch) => ({
-  searchContact: (e) => dispatch(veluesFilter(e.target.value)),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(SearchContact);
 
 
-//SearchContact.propTypes = {
- // value: PropTypes.string.isRequired,
-  //SearchContact: PropTypes.func.isRequired,
-//};
