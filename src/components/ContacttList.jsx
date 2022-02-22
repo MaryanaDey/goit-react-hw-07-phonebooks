@@ -1,12 +1,11 @@
 import React from "react";
-// import PropTypes from "prop-types";
-import { useSelector } from "react-redux";
+import { useSelector} from "react-redux";
 import Button from "./ButtonList/buttonList";
 import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors";
 import s from "./phone.module.css"
 
 export default function СontactList() {
-  const stateContacts = useSelector(phonebookSelectors.getFilterContacts);
+  const stateContacts = useSelector(state => phonebookSelectors.getFilterContacts(state));
 
   return (
     <>

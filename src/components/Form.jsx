@@ -7,10 +7,6 @@ import shortid from 'shortid';
 import s from './phone.module.css';
 import Button from "./Button/button";
 
-//import  {getContactList} from "../Redux/phonebook/phonebook-selectors";
-//import { addContact } from '../Redux/phonebook/phonebook-actions';
-
-
 export default function Form() {
   const [newName, setName] = useState("");
   const [number, setNumber] = useState("");
@@ -96,8 +92,8 @@ export default function Form() {
         name="number"
         value={number}
         onChange={InputValues}
-        autoComplete="off"
-      ></input>
+        autoComplete="off">
+      </input>
 
       <Button>Додати контакт</Button>
     </form>

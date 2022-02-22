@@ -35,3 +35,4 @@ export const PhoneBookApi = createApi({
 
 });
 
+export const { useGetContactsQuery, useAddContactMutation, useDeleteContactMutation } = PhoneBookApi;

@@ -28,6 +28,7 @@ export default function SearchContact() {
         onChange={searchContact}
         id={id}
         className={s.inputSearch}
+        placeholder="Enter name"
       ></input>
     </div>
   );

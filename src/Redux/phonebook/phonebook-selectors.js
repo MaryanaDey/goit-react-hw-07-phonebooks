@@ -6,10 +6,11 @@ export const getContactFilter = ( state ) => state.phonebook.filter;
 export const getFilterContacts = createSelector(
   [getContactList, getContactFilter],
 
-  (allContacts, filter) => {
-    const normalizeFilter = filter.toLowerCase();
+  (allContacts) => {
+  
     const contactsFilter = allContacts.filter((contact) =>
-     contact.newName.toLowerCase().includes(normalizeFilter));
+     contact.newName,
+     );
     return contactsFilter;
   },
 );

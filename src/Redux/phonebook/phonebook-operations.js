@@ -1,24 +1,28 @@
 import axios from "axios";
 import  * as actions from "./phonebook-actions";
 
-axios.defaults.baseURL = "http://localhost:2021/";
+axios.defaults.baseURL = "https://61d2f759b4c10c001712b6cd.mockapi.io";
 
 export const fetchContact = () => (dispatch) => {
   dispatch(actions.fetchContactRequest());
   axios
     .get("/contacts")
     .then(({ data }) => dispatch(actions.fetchContactSuccess(data)))
-    .catch((error) => actions.fetchContactError(error));
+    .catch((error) => dispatch(actions.fetchContactError(error)));
 };
 
-export  const addContact = (newName, number) => (dispatch) => {
-  const contact = { newName, number };
+export  const addContact = ({newName, number}) => (dispatch) => {
+  const contact = {
+     newName, number
+   };
 
   dispatch(actions.addContactRequest());
 
   axios
     .post("/contacts", contact)
-    .then(({ data }) => dispatch(actions.addContactSuccess(data)))
+    .then(({ data }) => {
+      dispatch(actions.addContactSuccess(data))
+    })
     .catch((error) => dispatch(actions.addContactError(error)));
 };
 
