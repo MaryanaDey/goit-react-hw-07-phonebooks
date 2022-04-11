@@ -21,7 +21,7 @@ const store = configureStore({
   reducer: {
     phonebook: phonebookReducer,
   },
-  devTools: process.env.NODE_ENV === 'development',
+  // devTools: process.env.NODE_ENV === 'development',
   middleware,
 });
 
