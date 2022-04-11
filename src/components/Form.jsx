@@ -4,7 +4,7 @@ import * as phonebookOperation from "../Redux/phonebook/phonebook-operations";
 import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors";
 
 import shortid from 'shortid';
-import s from './phone.module.css';
+import s from "./PhoneBock.module.css";
 import Button from "./Button/button";
 
 export default function Form() {

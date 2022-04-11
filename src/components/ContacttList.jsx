@@ -2,7 +2,7 @@ import React from "react";
 import { useSelector} from "react-redux";
 import Button from "./ButtonList/buttonList";
 import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors";
-import s from "./phone.module.css"
+import s from "./PhoneBock.module.css";
 
 export default function СontactList() {
   const stateContacts = useSelector(state => phonebookSelectors.getFilterContacts(state));

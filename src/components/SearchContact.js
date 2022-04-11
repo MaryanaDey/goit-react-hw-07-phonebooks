@@ -1,6 +1,6 @@
 import React from 'react';
 import shortid from 'shortid';
-import s from './phone.module.css';
+import s from "./PhoneBock.module.css";
 import * as phonebookActions from "../Redux/phonebook/phonebook-actions";
 import * as phonebookSelectors from "../Redux/phonebook/phonebook-selectors";
 

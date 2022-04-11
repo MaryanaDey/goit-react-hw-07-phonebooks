@@ -4,7 +4,7 @@ import { useDispatch } from "react-redux";
 import Form from './components/Form';
 import SearchContact from './components/SearchContact';
 import ContactList from './components/ContacttList';
-import s from './components/phone.module.css';
+import s from "./components/PhoneBock.module.css";
 import * as phonebookOperations from "./Redux/phonebook/phonebook-operations";
 
 export default function Mobile() {
