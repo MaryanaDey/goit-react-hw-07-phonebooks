@@ -11,9 +11,9 @@ export const fetchContact = () => (dispatch) => {
     .catch((error) => dispatch(actions.fetchContactError(error)));
 };
 
-export  const addContact = ({newName, number}) => (dispatch) => {
+export  const addContact = ({nick, number}) => (dispatch) => {
   const contact = {
-     newName, number
+     nick, number
    };
 
   dispatch(actions.addContactRequest());
